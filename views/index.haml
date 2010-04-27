@@ -1,0 +1,16 @@
+!!! XML
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
+  %head
+    %title Create a book from your feeds
+    %link{ :href => "/print.css", :rel => "stylesheet", :type => "text/css"}
+  %body
+    #content
+      .title
+        %h1 What's your feed?
+      %form{ :action => "/", :method => "post"}
+        %p
+        %input{ :name => "feedurl", :type => "text", :id => "feedurl"}
+        %input{ :type => "submit"}
+          
+        

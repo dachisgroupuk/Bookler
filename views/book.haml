@@ -1,0 +1,22 @@
+!!! XML utf-16
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
+  %head
+    %title Create a book from your feeds
+    %link{ :href => "http://10.167.0.98:4567/print.css", :rel => "stylesheet", :type => "text/css"}
+  %body
+    #toc
+      -for chapter in @chapters
+      -id= Digest::MD5.hexdigest(chapter['title'].to_s)
+      -anchor='#'+id
+        %h2
+          %a(href=anchor) 
+            = RedCloth.new(chapter['title'].to_s).to_html
+    -for chapter in @chapters
+    -id= Digest::MD5.hexdigest(chapter['title'].to_s)
+      .chapter
+        %h1
+          %a(name=id) 
+            = RedCloth.new(chapter['title'].to_s).to_html
+        %p 
+          = RedCloth.new(chapter['content'].to_s).to_html
