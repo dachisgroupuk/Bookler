@@ -43,10 +43,10 @@ q::after {
   content: "\201D";
 }
 
-p { margin: 0 }
+p { margin: 0 0 1em 0 }
 p + p { text-indent: 1.3em }
 p.sidenote + p, p.caption, p.art { text-indent: 0 } 
-
+img {border: 1px solid #CCC; margin: 10px auto; clear: both; padding 20px;}
 br {
 	margin:0 0 1em 0;
 	display:block;

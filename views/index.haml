@@ -10,7 +10,13 @@
         %h1 What's your feed?
       %form{ :action => "/", :method => "post"}
         %p
+        %h3 Feed URL
         %input{ :name => "feedurl", :type => "text", :id => "feedurl"}
+        %h3 delicious username
+        %input{ :name => "dname", :type => "text", :id => "dname"}
+        %h3 Feed delicious pass
+        %input{ :name => "dpass", :type => "text", :id => "dpass"}
+        %p
         %input{ :type => "submit"}
           
         
