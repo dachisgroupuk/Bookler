@@ -4,6 +4,8 @@ On the command line, in the base of the project, you can run
 
 prince -i html -s views/print.css <HTML FILE>
 
+You need to grab Prince from this page: http://www.princexml.com/download/
+
 against the saved HTML from the rendered articles, which will do the job.
 
 Right now the CSS is configured for Lulu's 6x9 article, and is mainly sans-serif style. Feel free to change it, I'd love to have some options...
