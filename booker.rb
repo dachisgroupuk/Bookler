@@ -14,18 +14,15 @@ post '/' do
    feedurl = params[:feedurl]
    dname = params[:dname]
    dpass = params[:dpass]
-   coder = HTMLEntities.new
    delicious = Rdelicious.new(dname, dpass)
    posts = []
    @chapters = []
    feed = FeedNormalizer::FeedNormalizer.parse open(feedurl)
   feed.entries.each do |post|
-  puts post.urls.first
-  sleep 1
   url = 'http://felixcohen.co.uk/readability.php?url='+post.urls.first
   text = open(url).read
-   @chapters.push("title"=>post.title,"content"=>text)
-    delicious.add(post.urls.first,post.title,'','madeintoabook') if delicious.is_connected?
+  @chapters.push("title"=>post.title,"content"=>text)
+  delicious.add(post.urls.first,post.title,'','madeintoabook') if delicious.is_connected?
   end
   haml :book
   #template = File.read('views/book.haml')
