@@ -3,7 +3,7 @@
 
 html { 
   margin: 0;
-  font: 10pt/1.26 "Bookman Old Style", sans-serif;
+  font: 10pt/1.26 "Helvetica", sans-serif;
 }
 
 body { 
@@ -11,7 +11,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 { 
-  font-family: "Bookman Old Style", sans-serif;
+  font-family: "Baskerville", serif;
   margin: 2em 0 0.5em 0;
   page-break-after: avoid;
 } 
@@ -26,7 +26,6 @@ h1 {
 
 h2 { 
   font-size: 1.2em;
-  text-transform: uppercase;
   font-weight: bold;
 }
 
@@ -111,7 +110,7 @@ a { text-decoration: none; color: black }
 @page :left {
   @top-left {
     font: 8pt "Bookman Old Style", serif;
-    content: "A delicious pdf";
+    content: "Felix's links!";
 	font-style:italic;
     vertical-align: bottom;
     padding-bottom: 2em;
@@ -374,7 +373,9 @@ div.chapter img {display:block;margin:1cm;border:0.25cm solid #333333;max-width:
  
 /*exceptions*/
 .commenter-profile img, .commenter-profile, img.bug {dispaly:none;}   
-
+table {border: none;}
+div {border: 0.01cm solid #FFFFFF;}
+td {border: none; }
 
 h1::before {
   white-space: pre;

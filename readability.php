@@ -108,7 +108,7 @@ function grabArticle($html, $with_title=true) {
 		// Cleans out junk from the topDiv just in case:
 		$topDiv = clean($topDiv, 'form');
 		$topDiv = clean($topDiv, 'object');
-		$topDiv = clean($topDiv, 'table', 250);
+		$topDiv = clean($topDiv, 'table');
 		$topDiv = clean($topDiv, 'h1');
 		//$topDiv = clean($topDiv, 'h2');
 		$topDiv = clean($topDiv, 'iframe');

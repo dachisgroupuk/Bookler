@@ -2,19 +2,22 @@
 !!!
 %html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
   %head
-    %title Create a book from your feeds
-    %link{ :href => "http://localhost:4567/print.css", :rel => "stylesheet", :type => "text/css"}
+    %title Bookler
+    %link{ :href => "/print.css", :rel => "stylesheet", :type => "text/css"}
   %body
     #toc
+      %ul
       -for chapter in @chapters
-      -id= Digest::MD5.hexdigest(chapter['title'])
-      -anchor='#'+id
-        %h2
-          %a(href=anchor) 
-            = chapter['title']
+        -id= Digest::MD5.hexdigest(chapter['title'])
+        %li
+          -anchor='#'+id
+          %h2
+            %a(href=anchor) 
+              = chapter['title']
     -for chapter in @chapters
     -id= Digest::MD5.hexdigest(chapter['title'])
       .chapter
-        %a(name=id) 
+        %a(name=id)
+          = chapter['title']
         %p 
           = chapter['content']
