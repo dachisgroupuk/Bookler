@@ -24,7 +24,6 @@ post '/' do
   @chapters.push("title"=>post.title,"content"=>text)
   delicious.add(post.urls.first,post.title,'','madeintoabook') if delicious.is_connected?
   end
-  haml :book
   template = File.read('views/book.haml')
   haml_engine = Haml::Engine.new(template)
   output = haml_engine.render(Object.new, :@chapters => @chapters)
@@ -38,6 +37,7 @@ post '/' do
      :filename => '/tmp/book.pdf',
      :type => 'application/pdf'
    )
+   haml :book
 end
 
 get '/' do

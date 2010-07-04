@@ -30,6 +30,15 @@ h2 {
   font-weight: bold;
 }
 
+.chapter h2 {
+	string-set: header content();
+	display: block;
+	min-height: 180px;
+	width: 50%;
+	float: right;
+	clear: both;
+}
+
 h3 { 
   font-size: 1em;
   font-weight: bold;
@@ -47,7 +56,7 @@ q::after {
   content: "\201D";
 }
 
-p { margin: 0 }
+p { margin: 0.5em 0 }
 p + p { text-indent: 1.3em }
 p.sidenote + p, p.caption, p.art { text-indent: 0 } 
 
@@ -110,15 +119,14 @@ a { text-decoration: none; color: black }
 
 @page :left {
   @top-left {
-    font: 8pt "Bookman Old Style", serif;
-    content: "Felix's links!";
-	font-style:italic;
+    font: 8pt "Gill Sans", serif;
+    content: string(header, first); 	font-style:italic;
     vertical-align: bottom;
     padding-bottom: 2em;
   }
 
   @bottom-left {
-    font: 8pt "Bookman Old Style", serif;
+    font: 8pt "Gill Sans", serif;
     content: counter(page);
     padding-top: 2em;
     vertical-align: top;
@@ -127,7 +135,7 @@ a { text-decoration: none; color: black }
 
 @page :right {
   @top-right {
-    font: 8pt "Bookman Old Style", serif;    
+    font: 8pt "Gill Sans", serif;    
 	font-style:italic;
     content: string(header, first); 
     vertical-align: bottom;
@@ -135,7 +143,7 @@ a { text-decoration: none; color: black }
   }
 
   @bottom-right {
-    font: 8pt "Bookman Old Style", serif;
+    font: 8pt "Gill Sans", serif;
     content: counter(page);
     text-align: right;
     vertical-align: top;
@@ -145,7 +153,7 @@ a { text-decoration: none; color: black }
 
 @page frontmatter :left {
   @top-left {
-    font: 8pt "Bookman Old Style", serif; 
+    font: 8pt "Gill Sans", serif; 
 	font-style:italic;  
     content: string(title);
     vertical-align: bottom;
@@ -153,7 +161,7 @@ a { text-decoration: none; color: black }
   }
 
   @bottom-left {
-    font: 8pt "Bookman Old Style", serif;
+    font: 8pt "Gill Sans", serif;
     content: counter(page, lower-roman);
     padding-top: 2em;
     vertical-align: top;
@@ -165,7 +173,7 @@ a { text-decoration: none; color: black }
 
 @page frontmatter :right {
   @top-right {
-    font: 8pt "Bookman Old Style", serif; 
+    font: 8pt "Gill Sans", serif; 
     font-style:italic;  
     content: string(header, first); 
     vertical-align: bottom;
@@ -173,7 +181,7 @@ a { text-decoration: none; color: black }
   }
 
   @bottom-right {
-    font: 8pt "Bookman Old Style", serif; 
+    font: 8pt "Gill Sans", serif; 
 	font-style:italic;  
     content: counter(page, lower-roman);
     text-align: right;
@@ -410,10 +418,10 @@ ul.index a::after { content: ", " target-counter(attr(href), page); }
 ul.index li a {font-size:1em;}
 
 @media screen, handheld {
-  html { margin: 1em; font: 14px "Bookman Old Style", sans-serif; }  
+  html { margin: 1em; font: 14px "Gill Sans", sans-serif; }  
   span.logo {position:absolute;top:5em;font-weight:bold;}
   h1 { margin-bottom: 0.5em; padding-bottom:0; } 
-  #content {width:650px;} 
+  #content {width:750px;} 
   p {padding:0 0 1.5em 0;}
   p + p { text-indent: 0 }
   div.frontcover, div.halftitlepage, div.titlepage, div.imprint, 
