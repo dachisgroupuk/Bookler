@@ -1,15 +1,5 @@
-At the moment this is all pretty shonky; there's a bit of commented out code for handling the prince step, but currently that's not picking up the CSS for some reason...
-
-On the command line, in the base of the project, you can run
-
-prince -i html -s views/print.css <HTML FILE>
-
-You need to grab Prince from this page: http://www.princexml.com/download/
-
-against the saved HTML from the rendered articles, which will do the job.
+You need to grab Prince from this page: http://www.princexml.com/download/ and have it installed on the same machine as the Bookler code.
 
 Right now the CSS is configured for Lulu's 6x9 book style, and is mainly sans-serif style. Feel free to change it, I'd love to have some options...
 
 The delicious details on the front page are for retagging the posts (I'm still using the RSS for pulling content down as it means instapaper feeds will still work...). It'll retag them to 'imadeabook' for now, might add that as a config field, but I quite like having a bit of a common *thing*.
-
-Oh, and now we're using readability, not extractomatic...it's a lot faster and better for this in some ways, but most importantly I'm not in beer debt to Tom Taylor any more. I'm hosting one on my server you're more than welcome to use, or it should run fine locally. 
