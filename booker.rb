@@ -25,19 +25,19 @@ post '/' do
   delicious.add(post.urls.first,post.title,'','madeintoabook') if delicious.is_connected?
   end
   haml :book
-  #template = File.read('views/book.haml')
-  #haml_engine = Haml::Engine.new(template)
-  #output = haml_engine.render(Object.new, :@chapters => @chapters)
+  template = File.read('views/book.haml')
+  haml_engine = Haml::Engine.new(template)
+  output = haml_engine.render(Object.new, :@chapters => @chapters)
   #puts output
-  #file = "/tmp/file.pdf"
-   # prince = Prince.new
-    #prince.html_to_file(output, file)
-    #puts @exe_path
-   #send_file(
-    # file,
-    # :filename => 'book.pdf',
-    # :type => 'application/pdf'
-   #)
+  file = "/tmp/book.pdf"
+    prince = Prince.new
+    prince.add_style_sheets("views/print.css")
+    prince.html_to_file(output, file)
+   send_file(
+     file,
+     :filename => '/tmp/book.pdf',
+     :type => 'application/pdf'
+   )
 end
 
 get '/' do

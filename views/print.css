@@ -11,9 +11,10 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 { 
-  font-family: "Baskerville", serif;
+  font-family: "Gill sans", "Futura", serif;
   margin: 2em 0 0.5em 0;
   page-break-after: avoid;
+  font-weight: 100;
 } 
 
 h1 { 
@@ -329,39 +330,42 @@ div.titlepage p, div.halftitlepage p {
 
 
 /* TOC */ 
-ul.toc {
+#toc {
 	margin:0; 
 	padding:0;  
 	list-style-type: none;  
 	}
-ul.toc ul { 
+#toc ul { 
   margin: 0 0 0 1em; 
   padding: 0;
   font-weight: normal;     
 }
-ul.toc > li { 
+#toc > li { 
   font-weight: bold;
-  margin-bottom: 0.5em;
-}
-ul.toc a::after {
+  margin-bottom: 0;
+
+}    
+#toc a {margin:0;}
+#toc a::after {
   content: leader('.') target-counter(attr(href), page);
   font-style: normal;
 }
-ul.toc > li.frontmatter a::after {
+#toc > li.frontmatter a::after {
   content: leader('.') target-counter(attr(href), page, lower-roman);
   font-style: normal;
 }
-ul.toc > li.endmatter a::after {
+#toc > li.endmatter a::after {
   content: leader('.') target-counter(attr(href), page);
   font-style: normal;
 }
-ul.toc > li.chapter::before {
+#toc > li::before {
   content: "Chapter " counter(toc-chapter, decimal);
   display: block;
   margin: 1.5em 0 0.1em 0cm;
   font-weight: normal;
   counter-increment: toc-chapter;
-  page-break-after: avoid;
+  page-break-after: avoid;   
+  font-size: 1.2em;   
 }
 
 /* chapter numbers */
@@ -369,7 +373,7 @@ ul.toc > li.chapter::before {
 div.chapter { counter-increment: chapter; }  
             
 /*images*/
-div.chapter img {display:block;margin:1cm;border:0.25cm solid #333333;max-width:4in;clear:both;}
+div.chapter img {display:block;/*border:0.25cm solid #333333;*/max-width:4in;clear:both;margin:0.5in auto;}
  
 /*exceptions*/
 .commenter-profile img, .commenter-profile, img.bug {dispaly:none;}   
