@@ -12,7 +12,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 { 
   font-family: "Gill sans", "Futura", serif;
-  margin: 2em 0 0.5em 0;
+  margin: 1em 0 0.5em 0;
   page-break-after: avoid;
   font-weight: 100;
 } 
@@ -30,13 +30,14 @@ h2 {
   font-weight: bold;
 }
 
-.chapter h2 {
+h2.chaptertitle {
 	string-set: header content();
 	display: block;
 	min-height: 180px;
 	width: 50%;
 	float: right;
 	clear: both;
+	  page-break-after: never;
 }
 
 h3 { 
