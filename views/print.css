@@ -34,10 +34,10 @@ h2.chaptertitle {
 	string-set: header content();
 	display: block;
 	min-height: 180px;
-	width: 50%;
+	width: 70%;
 	float: right;
 	clear: both;
-	  page-break-after: never;
+	page-break-after: never;
 }
 
 h3 { 
@@ -105,7 +105,7 @@ a { text-decoration: none; color: black }
 
 @page {
   margin: 27mm 16mm 27mm 16mm;
-  size: 6in 9in;
+  size: 6in 9in !important;
 
   @footnotes {
     border-top: thin solid black;
@@ -115,7 +115,7 @@ a { text-decoration: none; color: black }
   }
 }
 
-
+div {max-width:400px !important;}
 /* define default page and names pages: cover, blank, frontmatter */
 
 @page :left {
