@@ -24,7 +24,7 @@ post '/' do
     if ((post.urls.first.include? 'jpg') || (post.urls.first.include? 'png') || (post.urls.first.include? 'gif'))
       @chapters.push("content"=>"<img src=\""+post.urls.first+"\">")
     else  
-      url = '/readability.php?url='+post.urls.first
+      url = 'http://felixcohen.co.uk/readability.php?url='+post.urls.first
       text = open(url).read
       @chapters.push("title"=>post.title,"content"=>text)
     end
