@@ -1,26 +1,27 @@
 !!! XML utf-16
-!!!
+!!! 5
 %html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
   %head
     %title Bookler
     %link{ :href => "/print.css", :rel => "stylesheet", :type => "text/css"}
   %body
-    #toc
-      %ul
-        -for chapter in @chapters
-          -if(chapter['title'])
-            -id= Digest::MD5.hexdigest(chapter['title'])
-            %li
-              -anchor='#'+id
-              %h2
+    %header
+      %nav
+        %ul
+          -for chapter in @chapters
+            -if(chapter['title'])
+              -id= Digest::MD5.hexdigest(chapter['title'])
+              %li
+                -anchor='#'+id
                 %a(href=anchor) 
                   = chapter['title']
-    -for chapter in @chapters
-      -if(chapter['title'])
-        -id= Digest::MD5.hexdigest(chapter['title'])
-        .chapter
-          %h2.chaptertitle
-            %a(name=id)
-              = chapter['title']
-        .clear 
-      = chapter['content']
+    %section{:class => "container"}
+      -for chapter in @chapters
+        -if(chapter['title'])
+          -id= Digest::MD5.hexdigest(chapter['title'])
+          %article  
+            %header
+              %h1
+                %a(name=id)
+                  = chapter['title']
+            = chapter['content']

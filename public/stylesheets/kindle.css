@@ -1,0 +1,184 @@
+/* Based on the Sample style sheet for boom!, the book microformat by Hakon Wium Lie and Bert Bos, November 2005 */
+/* You may reuse this style sheet for any purpose without any fees */
+
+html { 
+  margin: 0;
+  font: 24pt/36pt "Caecillia", Garamond, Baskerville, Palatino, Minion Pro, Hoefler Text, Cochin, Times New Roman, serif;
+}
+
+body { 
+  margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6 { 
+  font-family: "Caecillia", Garamond, Baskerville, Palatino, Minion Pro, Hoefler Text, Cochin, Times New Roman, serif;
+  margin: 2em 0 0.5em 0;
+  page-break-after: avoid;
+} 
+
+
+h1, h2 { 
+  font-size: 22pt;
+  margin:4em 0 2em 0;
+  font-weight: bold;
+  text-align:center;
+}
+
+h3 { 
+  font-size: 1em;
+  font-weight: bold;
+}  
+
+span.caps {
+	font-variant: small-caps;
+}
+
+sup {font-size:1em;}
+
+blockquote, q {
+  margin:1em;
+}
+
+blockquote:before, q:before {
+  content: "\201C";
+}
+
+blockquote:after, q:after {
+  content: "\201D";
+}
+
+/*clear*/
+.clear {clear:both;line-height:0px;font-size:0px;height:0px;padding:0px;margin:0px;border:none;}
+/* Clearfix */
+.clearfix:after {visibility:hidden;display:block;font-size:0;content:" ";clear:both;height:0;}
+
+p { margin: 0 }
+p + p { text-indent: 1.3em }
+p.sidenote + p, p.caption, p.art { text-indent: 0 } 
+
+br {
+	margin:0 0 1em 0;
+	display:block;
+}
+
+/*images*/
+img {display:block;max-width:1000px;clear:both;margin:50px auto;}
+
+/*code*/
+pre, code {
+  margin: 1em 1.3em;
+	white-space: pre-wrap; /* css-3 */
+	white-space: -moz-pre-wrap !important; /* Mozilla, since 1999 */
+	white-space: -pre-wrap; /* Opera 4-6 */
+	white-space: -o-pre-wrap; /* Opera 7 */
+	word-wrap: break-word; /* Internet Explorer 5.5+ */
+}
+
+a { text-decoration: none; color: black }
+
+@page {
+  margin: 2em;
+  size: 824px 1200px;
+
+  @footnotes {
+    border-top: thin solid black;
+    padding-top: 0.3em;
+    margin-top: 0.6em;
+    margin-left: 7%;
+  }
+}
+
+
+/* define default page and names pages: cover, blank, frontmatter */
+
+@page blank :left {
+  @top-left { content: normal }
+  @bottom-left { content: normal }
+}
+
+@page blank :right {
+  @top-right { content: normal }
+  @bottom-right { content: normal }
+} 
+
+/* footnotes */
+
+.footnote {
+  display: none;                   /* default rule */
+
+  display: prince-footnote;        /* prince-specific rules */
+  position: footnote;
+  footnote-style-position: inside;
+
+  counter-increment: footnote;
+  margin-left: 1.4em;
+  font-size: 90%;
+  line-height: 1.4;
+}
+
+.footnote::footnote-call {
+  vertical-align: super;
+  font-size: 80%;
+}
+
+.footnote::footnote-marker {
+  vertical-align: super;
+  color: green;
+  padding-right: 0.4em;
+}
+
+
+/* TOC */ 
+nav { page: frontmatter }
+
+nav {
+	margin:0; 
+	padding:0;  
+	list-style-type: none;  
+	}
+nav ul { 
+  margin: 0; 
+  padding: 0;   
+}
+nav ul li {
+  list-style-type:none;
+  font-size:17pt;  
+  font-weight: normal;
+}
+nav a:before {
+  content: "Chapter " counter(toc-chapter, decimal) ":";
+  margin: 1em 0 0.1em 0em;
+  font-weight: bold;
+  counter-increment: toc-chapter;
+  page-break-after: avoid;   
+}
+nav a:after {
+  content: leader('.') target-counter(attr(href), page);
+}
+
+/* chapters */
+
+article { 
+  page-break-before: always;
+  counter-increment: chapter;
+}
+
+/* chapter headings */
+article h1:before {
+  white-space: pre;
+  margin-left: 0;
+  font-size: 100%;
+  content: "Chapter " counter(chapter) " \A"; 
+  }
+
+article h1 { string-set: header content();}
+article h1 { string-set: header "Chapter " counter(chapter) ": " content(); }
+            
+
+/*exceptions*/
+.commenter-profile img, .commenter-profile, img.bug, .comment, #usercomments_list, .comments, #comments, .discuss {display:none;}   
+table {border: none;}
+td {border: none; }
+
+
+

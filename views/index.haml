@@ -1,24 +1,33 @@
 !!! XML
-!!!
+!!! 5
 %html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
   %head
-    %title Create a book from your feeds
-    %link{ :href => "/print.css", :rel => "stylesheet", :type => "text/css"}
+    %title Bookler: Create a book from your feeds
+    %link{ :href => "stylesheets/screen.css", :rel => "stylesheet", :type => "text/css"}
+    %script{:src => "http://use.typekit.com/mch5tem.js", :type => "text/javascript"}
+    :javascript
+      try{Typekit.load();}catch(e){}
   %body
-    #content
+    %header
       .title
-        %span{:class => "logo"} Bookler 1.0
-        %h1 What's your feed? 
+        %h1{:class => "logo"} Bookler
+        %span{:class => "beta"} beta
+    %section{:class => "content"}
+    %article
       %form{ :action => "/", :method => "post"}
-        %h3 Feed URL
+        %label What's your feed?
         %input{ :name => "feedurl", :type => "text", :id => "feedurl"}
-        %h3 delicious username
-        %input{ :name => "dname", :type => "text", :id => "dname"}
-        %h3 Feed delicious pass  
-        %input{ :name => "dpass", :type => "password", :id => "dpass"}
-        %p 
-          %input{ :type => "submit", :class => "button blue", :value => "Create a book"}
-        %p Welcome to Bookler, basically a personal POD service (print on demand) for your saved long format articles. To create your own pdf (lulu ready) simply paste your Delicious or Instapaper rss feed url below (e.g. http://feeds.delicious.com/v2/rss/felixcohen/readlater?count=15) click the button. Done. You will be prompted to save the pdf (or you should be, but that's broken at the moment and we totally don't have the $ for a Prince server licence, so save your HTML and follow the instructions on the Bookler github page)
+        /%label delicious username
+        /%input{ :name => "dname", :type => "text", :id => "dname"}
+        /%label delicious password  
+        /%input{ :name => "dpass", :type => "password", :id => "dpass"}
+        %input{ :type => "submit", :class => "button brown", :value => "Create a book"}
+        %hr
+        %p
+          Welcome to Bookler, basically a personal POD service (print on demand) for your saved long format articles. To create your own pdf (lulu ready) simply paste your Delicious or Instapaper rss feed url above (e.g. http://feeds.delicious.com/v2/rss/felixcohen/readlater?count=15) click the button. Done. You will be prompted to save the pdf (or you should be, but that's broken at the moment and we totally don't have the $ for a Prince server licence, so save your HTML and follow the instructions on the
+          = succeed ")" do
+            %a{:href => "https://github.com/headshift/Bookler", :title => "Bookler github page"} Bookler github page
         %p Note, this is intended to be for articles for which you have the rights to print, it may require seeking permission from the rights holder.
-        %p If you pop your Delicious user details in, the app will retag your existing bookmarks being fed in to be tagged 'madeintoabook'. In a totally destructive fashion, so you know, be careful.
-          
+        /%p If you pop your Delicious user details in, the app will retag your existing bookmarks being fed in to be tagged 'madeintoabook'. In a totally destructive fashion, so you know, be careful.
+    %footer
+      %p created by felix cohen and rich holman

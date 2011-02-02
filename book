@@ -1,7 +1,7 @@
 <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
     <title>Create a book from your feeds</title>
-    <link href='/views/print.css' rel='stylesheet' type='text/css' />
+    <link href='/print.css' rel='stylesheet' type='text/css' />
   </head>
   <body>
     <div id='toc'>

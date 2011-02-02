@@ -12,8 +12,7 @@ module PdfHelper
       # Sets style sheets on PDF renderer.
       prince.add_style_sheets(
         "#{RAILS_ROOT}/public/stylesheets/application.css",
-        "#{RAILS_ROOT}/public/stylesheets/print.css",
-        "#{RAILS_ROOT}/public/stylesheets/prince.css"
+        "#{RAILS_ROOT}/public/stylesheets/print.css"
       )
       prince.add_style_sheets("#{RAILS_ROOT}/public/stylesheets/prince_landscape.css") if landscape
       # Render the estimate to a big html string.
