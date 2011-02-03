@@ -45,6 +45,7 @@ blockquote:after, q:after {
 }
 
 p { margin: 0 }
+/*p:first-letter {font-size:200%;}*/
 p + p { text-indent: 1.3em }
 p.sidenote + p, p.caption, p.art { text-indent: 0 } 
 
@@ -91,7 +92,7 @@ a { text-decoration: none; color: black }
 @page :left {
   @top-left {
     font: 8pt "Hoefler Text", Baskerville, Palatino, Minion Pro, Garamond, Cochin, Times New Roman, serif; ;
-    content: "http:// a book of links";
+    content: "A Bookler book";
 	font-style:italic;
     vertical-align: bottom;
     padding-bottom: 2em;

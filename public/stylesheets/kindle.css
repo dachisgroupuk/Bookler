@@ -3,7 +3,7 @@
 
 html { 
   margin: 0;
-  font: 24pt/36pt "Caecillia", Garamond, Baskerville, Palatino, Minion Pro, Hoefler Text, Cochin, Times New Roman, serif;
+  font: 20pt/30pt "Caecilia LT Std", serif;
 }
 
 body { 
@@ -11,7 +11,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 { 
-  font-family: "Caecillia", Garamond, Baskerville, Palatino, Minion Pro, Hoefler Text, Cochin, Times New Roman, serif;
+  font-family: "Caecilia LT Std", serif;
   margin: 2em 0 0.5em 0;
   page-break-after: avoid;
 } 
@@ -142,7 +142,7 @@ nav ul {
 }
 nav ul li {
   list-style-type:none;
-  font-size:17pt;  
+  font-size:18pt;  
   font-weight: normal;
 }
 nav a:before {
