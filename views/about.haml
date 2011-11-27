@@ -1,0 +1,53 @@
+!!! 5
+%html(lang="en")
+	%head
+		%title Bookler
+		%link{:rel => 'stylesheet', :href => '../bootstrap.css', :type => "text/css"}
+		%link{:rel => 'stylesheet', :href => '../launch.css', :type => "text/css"}
+
+	%body
+		.topbar
+			.fill
+				.container
+					%a{:class => "brand", :href => ""}Bookler
+					%ul(class="nav")
+						%li
+							%a(href = "/") Home
+						%li(class="active")
+							%a(href = "/about") About
+						%li
+							%a(href = "mailto:felix@felixcohen.co.uk") Contact
+
+		.container
+			.content
+				.page-header
+					<h1>Bookler<small>&nbsp;read your feed</small></h1>
+				.row
+					.span12.offset1
+						%h2 Something to read
+						%p Rich and I got frustrated with overlong instapaper lists and delicious readlater tag archives and, wary of the combination of iDevices and bathrooms, decided that really they needed to get some stuff onto paper. Having a notoriously grumpy office printer, Lulu was the only option.
+						%p Bookler is a fast and dirty app to grab the HTML from a bunch of saved links, clean it up a bit, and spit it out along with some CSS derived from <a href="http://www.alistapart.com/articles/boom"> BOOM</a> to get nicely formatted books with a table of contents quickly. Here's what it looks like:
+						%ul.media-grid
+							%li
+								%a(href = "/images/1.jpg")
+									%img(src ="/images/1_small.jpg")
+								%a(href = "/images/2.jpg")
+									%img(src ="/images/2_small.jpg")
+								%a(href = "/images/3.jpg")
+									%img(src ="/images/3_small.jpg")
+								%a(href = "/images/4.jpg")
+									%img(src ="/images/4_small.jpg")
+								%a(href = "/images/5.jpg")
+									%img(src ="/images/5_small.jpg")
+						%p Have fun with it.
+						%h3 Instructions
+						%p You need to grab Prince from <a href = "http://www.princexml.com/download/">here</a>.
+						%p Right now the CSS is configured for Lulu's 6x9 book style, and is mainly sans-serif style. Feel free to change it, I'd love to have some options...
+						%p The delicious details on the front page are for retagging the posts (I'm still using the RSS for pulling content down as it means instapaper feeds will still work...). It'll retag them to 'imadeabook' for now. This is currently untested with the changes to the Delicious API/Feeds.
+			%footer
+				%p
+					A 
+					%a(href = "http://felixcohen.co.uk") Felix Cohen
+					&
+					%a(href = "http://www.dogwonder.co.uk") Rich Holman
+					production.
