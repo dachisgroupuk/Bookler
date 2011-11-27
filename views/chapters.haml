@@ -1,0 +1,27 @@
+!!! XML utf-16
+!!!
+%html{:xmlns => "http://www.w3.org/1999/xhtml", "xml:lang" => "en", :lang => "en"}
+	%head
+		%title
+			= book_title
+		%link{ :href => "/print.css", :rel => "stylesheet", :type => "text/css"}
+	%body
+		#toc
+			%ul
+				-for chapter in @chapters
+					-if(chapter['title'])
+						-id= Digest::MD5.hexdigest(chapter['title'])
+						%li
+							-anchor='#'+id
+							%h2
+								%a(href=anchor) 
+									= chapter['title']
+		-for chapter in @chapters
+			-if(chapter['title'])
+				-id= Digest::MD5.hexdigest(chapter['title'])
+				.chapter
+					%h2.chaptertitle
+						%a(name=id)
+							= chapter['title']
+				.clear 
+			= chapter['content']
