@@ -1,0 +1,8 @@
+gem 'sinatra'
+gem 'haml'
+gem 'feed-normalizer'
+gem 'data_mapper'
+gem 'dm-migrations'
+gem 'prince-ruby'
+gem 'json'
+gem 'rdelicious'
