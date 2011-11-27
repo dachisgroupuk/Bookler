@@ -10,7 +10,6 @@ require 'json'
 require 'open-uri'
 require 'digest/md5'
 require 'rdelicious'
-require 'readability_old.rb'
 
 DataMapper::Logger.new($stdout, :debug)
 DataMapper.setup(:default, "sqlite3://#{Dir.pwd}/db/bookler_dev") 
