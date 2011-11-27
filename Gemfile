@@ -1,3 +1,4 @@
+source :rubygems
 gem 'sinatra'
 gem 'haml'
 gem 'feed-normalizer'
