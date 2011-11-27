@@ -1,44 +1,83 @@
 /* Based on the Sample style sheet for boom!, the book microformat by Hakon Wium Lie and Bert Bos, November 2005 */
 /* You may reuse this style sheet for any purpose without any fees */
 
+
+
 html { 
   margin: 0;
-  font: 10pt/1.26 "Helvetica", sans-serif;
+  font-variant: regular;
+  line-height: 107%;
+  font-weight: lighter;
 }
 
 body { 
-  margin: 0 7%;
+  margin: 0 3.5%;
+  font: 12pt/1.26 "Fanwood", sans-serif;
+
 }
 
-h1, h2, h3, h4, h5, h6 { 
-  font-family: "Gill sans", "Futura", serif;
-  margin: 1em 0 0.5em 0;
+h1, h2, h3, h5, h6 { 
+  font-family: 'Fanwood';
+  margin: 1em 0 1em 0;
   page-break-after: avoid;
-  font-weight: 100;
+  font-weight: lightest;
+  clear: both;
 } 
 
+h4 { 
+  font-family: 'Courier New';
+  margin: 0 0 0.25em 0;
+  page-break-after: avoid;
+  clear: both;
+}
+
+p.section-intro {font-style: italic;}
+
 h1 { 
-  padding: 2em 0 1.5em 0;
+  padding: 0 0 0 0;
   margin: 0;
   font-size: 2em; 
   line-height:1.1em;
-  font-weight: 900;
+}
+
+h3 {
+	margin: 0 0 2em 0;
 }
 
 h2 { 
-  font-size: 1.2em;
-  font-weight: bold;
+  font-size: 2em;
+   page-break-after: avoid;
+page-break-before: right;
+  margin-bottom: 50%;
+  string-set: header content();
 }
 
-h2.chaptertitle {
-	string-set: header content();
-	display: block;
-	min-height: 180px;
-	width: 70%;
-	float: right;
-	clear: both;
-	page-break-after: never;
+div#quote, div#title, div#flysheet, div#bio {
+	string-set: header none;
+	page-break-before: always;
+	page-break-after: always;
 }
+
+dl {
+	page-break-before: always;	
+}
+
+img.chapterimage {
+	string-set: header none;
+page-break-before: left;
+margin: auto auto;
+page: blank;
+display: block;
+}
+
+a.chapterlink {page-break-before: left; page: blank;
+}
+
+div.fore {page-break-before: right; page: frontmatter;}
+div.fore > p + p {text-indent: 0 !important;} 
+div.fore br {margin: 0 0;}
+p.notitalic {font-style:normal;}
+div.rubric {font-size: 1em; font-family: 'Hoefler Text'; font-style:italic;}
 
 h3 { 
   font-size: 1em;
@@ -49,36 +88,27 @@ span.caps {
 	font-variant: small-caps;
 }
 
-q::before {
-  content: "\201C";
+img.chapters {
+	  height: 60px;
+	text-align: center;
+	margin-top: 0.8em;
+	  border: none;
+	clear: both;
 }
 
-q::after {
-  content: "\201D";
-}
+p {text-indent: 1em; margin: 0.4em 0; clear: both; font-size: 100%; text-align: justify; hyphens: auto; }
 
-p { margin: 0.5em 0 }
-p + p { text-indent: 1.3em }
+div.fore {page-break-before: right; page: frontmatter;}
+div.fore > p + p {text-indent: 0 !important;} 
+div.fore br {margin: 0 0;}
+p.notitalic {font-style:normal;}
+
+span.edited {font-style: italic;}
+img.logo {width: 2in; margin-top: 20em;}
 p.sidenote + p, p.caption, p.art { text-indent: 0 } 
-
-br {
-	margin:0 0 1em 0;
-	display:block;
-}
-
-p.author {
-  margin-top: 2em;
-  text-indent: 0;
-  text-align: right;
-}  
-
-p.commons {
-	margin-top: 2em; 
-	} 
 	
-ul.understanding 	{
-margin: 2em 0 0 0;
- }
+	#toc > li {margin: 0.2em 0 0 0;}
+	
 
 pre {  margin: 1em 1.3em; }
 
@@ -93,318 +123,222 @@ a { text-decoration: none; color: black }
 *:first-child+html .clearfix {zoom:1;}
 /* IE7 */
 .clr {overflow:hidden;/*method for clearing floats*/}
-
-.imprint p.commons {font-weight:bold;}
-.imprint ul.license-properties {margin:1em 0 0 0;padding:0;}	
-.imprint ul.license-properties ul {margin:0.5em 0;}
-.imprint ul.license-properties li {
-	list-style-type:none;
-	font-size:9pt;  
-	margin:0 0 0.5em 0;
-}        
+     
 
 @page {
-  margin: 27mm 16mm 27mm 16mm;
-  size: 6in 9in !important;
-
-  @footnotes {
-    border-top: thin solid black;
-    padding-top: 0.3em;
-    margin-top: 0.6em;
-    margin-left: 7%;
-  }
+  margin: 20mm 10mm 20mm 10mm;
+  size: 8.3in  11.7in !important;
 }
 
-div {max-width:400px !important;}
-/* define default page and names pages: cover, blank, frontmatter */
+div.meta > p, div.meta > p + p {text-indent: none;}
 
+blockquote { width: 80%; margin: 0.5em auto; font-size: 90%; text-align: justify; hyphens: auto;}
+blockquote > p {font-size: 100%;}
+
+/* define default page and names pages: cover, blank, frontmatter */
 @page :left {
   @top-left {
-    font: 8pt "Gill Sans", serif;
-    content: string(header, first); 	font-style:italic;
+    font: 10pt "Fanwood", serif;
+    content: string(header, first); 	
+    font-style:italic;
     vertical-align: bottom;
-    padding-bottom: 2em;
+    padding-bottom: 1.5em;
   }
 
   @bottom-left {
-    font: 8pt "Gill Sans", serif;
+    font: 10pt "Fanwood", serif;
     content: counter(page);
-    padding-top: 2em;
+    padding-top: 1.5em;
     vertical-align: top;
   }
 }
 
 @page :right {
   @top-right {
-    font: 8pt "Gill Sans", serif;    
+    font: 10pt "Fanwood", serif;    
 	font-style:italic;
-    content: string(header, first); 
+    content: 'Bond Vigilantes'; 
     vertical-align: bottom;
-    padding-bottom: 2em; 
+    padding-bottom: 1.5em; 
   }
 
   @bottom-right {
-    font: 8pt "Gill Sans", serif;
+    font: 10pt "Fanwood", serif;
     content: counter(page);
     text-align: right;
     vertical-align: top;
-    padding-top: 2em;
+    padding-top: 1.5em;
   }
 }
 
-@page frontmatter :left {
-  @top-left {
-    font: 8pt "Gill Sans", serif; 
-	font-style:italic;  
-    content: string(title);
-    vertical-align: bottom;
-    padding-bottom: 2em;
-  }
-
-  @bottom-left {
-    font: 8pt "Gill Sans", serif;
-    content: counter(page, lower-roman);
-    padding-top: 2em;
-    vertical-align: top;
-  }
-}
-
-@page cover { margin: 0; }
-@page backcover { margin: 0; }  
-
-@page frontmatter :right {
-  @top-right {
-    font: 8pt "Gill Sans", serif; 
-    font-style:italic;  
-    content: string(header, first); 
-    vertical-align: bottom;
-    padding-bottom: 2em; 
-  }
-
-  @bottom-right {
-    font: 8pt "Gill Sans", serif; 
-	font-style:italic;  
-    content: counter(page, lower-roman);
-    text-align: right;
-    vertical-align: top;
-    padding-top: 2em;
-  }
-}
 
 @page blank :left {
-  @top-left { content: normal }
-  @bottom-left { content: normal }
+  @top-left { content: normal; }
+  @bottom-left { content: normal; }
 }
 
 @page blank :right {
-  @top-right { content: normal }
-  @bottom-right { content: normal }
+  @top-right { content: normal; }
+  @bottom-right { content: normal; }
 } 
 
-/* footnotes */
-
-.footnote {
-  display: none;                   /* default rule */
-
-  display: prince-footnote;        /* prince-specific rules */
-  position: footnote;
-  footnote-style-position: inside;
-
-  counter-increment: footnote;
-  margin-left: 1.4em;
-  font-size: 90%;
-  line-height: 1.4;
+@page nohead :left {
+  @top-left { content: ' '; }
 }
 
-.footnote::footnote-call {
-  vertical-align: super;
-  font-size: 80%;
+@page nohead :right {
+  @top-right { content: ' '; }
 }
-
-.footnote::footnote-marker {
-  vertical-align: super;
-  color: green;
-  padding-right: 0.4em;
-}
-
-
-/*
-   A book consists of different types of sections. We propose to use
-   DIV elements with these class names:
-
-    frontcover
-    halftitlepage: contains the title of the book
-    titlepage: contains the title of the book, name of author(s) and publisher
-    imprint: left page with copyright, publisher, library printing information
-    dedication: right page with short dedication
-    foreword: written by someone other than the author(s)
-    toc: table of contents
-    preface: preface, including acknowledgements
-    chapter: each chapter is given its own DIV element
-    references: contains list of references
-    appendix: each appendix is given its own 
-    bibliography
-    glossary
-    index
-    colophon: describes how the book was produced
-    backcover
-
-   A book will use several of the types listed above, but few books
-   will use all of them.
-*/
-
-/* which section uses which named page */
-
-div.halftitlepage, div.titlepage, div.imprint, div.dedication, div.blank { page: blank }
-div.foreword, div#toc, div.preface { page: frontmatter }
 
 
 /* page breaks */
 
-div.frontcover, div.halftitlepage, div.titlepage, div.backcover { page-break-before: right }
-div.imprint, div.blank { page-break-before: always }
-div.dedication, div.foreword, div.preface, div.chapter, div.reference, 
-div.appendix, div.bibliography, div.glossary, div.index, div.colophon { 
-  page-break-before: always 
-}
-div.backcover { page-break-before: left }
+div.frontcover { page-break-before: right; }
+div.backcover { page-break-before: left; }
+a.chapter { page-break-before: left; }
 
-/* the front cover; this code is probably not very reusable by other books */
 
-div.frontcover { page: cover; }   
- 
+.section-header {page-break-before: left; font-variant: small-caps; font-size: 3em;}
 
-div.frontcover img {
+
+div.frontpage img {
   position: absolute;
-  width: 6in; height: 9in; 
+  size: 4.53in 7.27in !important;
+max-height: 9in;
+max-width: 8in;
+margin: 0;
   left: 0; top: 0;
   z-index: -1;
+display: none;
 }
+  
 
-div.frontcover h1 {
+
+div.backpage { page: backcover;  }    
+div.backpage img {
   position: absolute;
-  left: 2cm; top: 1cm;
-  color: white;
-  font-size: 44pt;
-  font-weight: normal;
-}
-
-div.frontcover h2 {
-  position: absolute;
-  left: 2cm; top: 5cm;
-  color: white;  
-  font-size: 16pt;
-  font-weight: normal;
-  padding: 0;
-  letter-spacing: 0.15em;
-}
-
-div.frontcover h3 {
-  position: absolute;
-  left: 2cm; top: 7cm;
-  color: white;
-  font-size: 24pt;
-  font-weight: normal;
-}
-
-div.frontcover p {
-  position: absolute;
-  left: 2cm; bottom: 1.5cm;
-  font-size: 24pt;
-  color: black;
-  font-weight: bold;
-  text-transform: uppercase;
-}   
-
-
-div.backcover { page: backcover;  }    
-div.backcover img {
-  position: absolute;
-  width: 6in; height: 9in; 
+  size: 5.83in 8.27in !important;
+max-height: 10in;
+max-width: 10in;
   left: 0; top: 0;
+display:none;
   z-index: -1;
 }
-
-
-/* titlepage, halftitlepage */
-
-div.titlepage h1, div.halftitlepage h1 { margin-bottom: 2em; }
-div.titlepage h2, div.halftitlepage h2 { font-size: 1.2em; margin-bottom: 3em; }
-div.titlepage h3, div.halftitlepage h3 { font-size: 1em; margin-bottom: 3em; }
-div.titlepage p, div.halftitlepage p { 
-  font-size: 1.4em;
-  font-weight: bold;
-  margin: 0; padding: 0;
-}
-
 
 /* TOC */ 
 #toc {
-	margin:0; 
+	margin:0 auto; 
 	padding:0;  
 	list-style-type: none;  
+	font-size: 100%;
+	page-break-before: always;
+	width: 80%;
+	page: blank;
 	}
-#toc ul { 
-  margin: 0 0 0 1em; 
-  padding: 0;
-  font-weight: normal;     
-}
-#toc > li { 
-  font-weight: bold;
-  margin-bottom: 0;
 
-}    
+
+h2.contents {margin-bottom: 1em; text-align: center;}
+
+#toc > li { 
+  font-weight: normal;
+  margin-left: 15px;
+  margin-bottom: 0;
+} 
+
+#toc > li { 
+  margin: 13px 5px;
+  clear: right;
+  font-size: 0.8em;
+  font-weight: normal;
+page-break-after: avoid;
+}  
+ 
 #toc a {margin:0;}
-#toc a::after {
+
+#toc > li > a::after {
   content: leader('.') target-counter(attr(href), page);
   font-style: normal;
 }
-#toc > li.frontmatter a::after {
-  content: leader('.') target-counter(attr(href), page, lower-roman);
-  font-style: normal;
-}
-#toc > li.endmatter a::after {
-  content: leader('.') target-counter(attr(href), page);
-  font-style: normal;
-}
+
 #toc > li::before {
   content: "Chapter " counter(toc-chapter, decimal);
-  display: block;
-  margin: 1.5em 0 0.1em 0cm;
-  font-weight: normal;
+  margin-right: 15px;
+  color: #FFF;
+}
+
+#toc > li.chapter::before {
+  content: "Chapter " counter(toc-chapter, decimal);
   counter-increment: toc-chapter;
-  page-break-after: avoid;   
-  font-size: 1.2em;   
+  page-break-after: avoid; 
+  font-style: italic;
+  font-weight: lighter;
+  margin-right: 15px;
+  color: #000;
+
 }
 
 /* chapter numbers */
 
-div.chapter { counter-increment: chapter; }  
-            
+/* Frontmatter */
+#title,#flysheet,#quote,#blank,#bio {
+	page-break-before: always; 
+page-break-after: always; 	
+page: blank;
+}
+
+#flysheet > p
+{text-indent: none !important;}
+
+#title h1, h3, span {
+text-align: center;
+}
+
+h3 {margin: 1em auto; width: 70%;}
+
+#title span {display: block; margin: 0.2em 0;}
+
+#quote p {
+	padding-top: 6em;
+	font-size: 130%;
+	width: 80%;
+	margin: 0 auto;
+	 }
+#quote span.author {
+	margin-right: 10%;
+	padding-top: 10px;
+	font-style: italic;
+	float: right;
+	display: block;
+	font-size: 130%;
+
+}
+
+span.author { clear: both; display: block;}
+
 /*images*/
-div.chapter img {display:block;/*border:0.25cm solid #333333;*/max-width:4in;clear:both;margin:0.5in auto;}
- 
+div.signified a > img {display:block; max-width:4in; max-height: 3.4in; clear:both;margin: 0.1in auto;}
+
 /*exceptions*/
 .commenter-profile img, .commenter-profile, img.bug {dispaly:none;}   
 table {border: none;}
 div {border: 0.01cm solid #FFFFFF;}
 td {border: none; }
 
-h1::before {
+.heading1::before,h1::before {
   white-space: pre;
   margin-left: 0;
   font-size: 50%;
   content: " \A";  /* ornaments */
 }
 
-div.chapter h1::before { content: "Chapter " counter(chapter) " \A"; }
+.heading1::before, div.chapter h1::before { content: "Chapter " counter(chapter) " \A"; }
 
 div.frontcover h1::before, div.titlepage h1::before, div.halftitlepage h1::before {
   content: normal;   /* that is, none */
 }
 
-h1 { string-set: header content();}
-div.chapter h1 { string-set: header "Chapter " counter(chapter) ": " content(); }
+.heading1, h1 { string-set: header content();}
+.heading1, div.chapter h1 { string-set: header "Chapter " counter(chapter) ": " content(); }
 
 /* index */
 
@@ -415,38 +349,19 @@ ul.index {
   column-gap: 1em;
 }
 
-ul.index a::after { content: ", " target-counter(attr(href), page); }
+ul.index li a::after { content: ", " target-counter(attr(href), page); }
+ul.index li a:first-child::after { content: target-counter(attr(href), page); }
+
 ul.index li a {font-size:1em;}
 
-@media screen, handheld {
-  html { margin: 1em; font: 14px "Gill Sans", sans-serif; }  
-  span.logo {position:absolute;top:5em;font-weight:bold;}
-  h1 { margin-bottom: 0.5em; padding-bottom:0; } 
-  #content {width:750px;} 
-  p {padding:0 0 1.5em 0;}
-  p + p { text-indent: 0 }
-  div.frontcover, div.halftitlepage, div.titlepage, div.imprint, 
-  div.dedication, div.foreword, div#toc, div.index { display: none }  
-  #feedurl {width:500px;padding:10px;} 
-  .button{display:inline-block;zoom:1;/* zoom and *display = ie7 hack for display:inline-block */
-	*display:inline;vertical-align:baseline;border:0;margin:20px 0 30px 0;outline:none;cursor:pointer;text-align:center;text-decoration:none;font:14px/100% Arial,Helvetica,sans-serif;padding:.5em 2em .55em;/*change to adjust size of button*/
-	text-shadow:0 1px 1px rgba(0,0,0,.3);-webkit-border-radius:.5em;-moz-border-radius:.5em;border-radius:.5em;-webkit-box-shadow:0 1px 2px rgba(0,0,0,.2);-moz-box-shadow:0 1px 2px rgba(0,0,0,.2);box-shadow:0 1px 2px rgba(0,0,0,.2);}
+span.ref {display: block; margin: 0.3em 0em; font-size: 60%; font-style: italic;}
 
-	.button:hover{text-decoration:none;}
-	.button:active{position:relative;top:1px;}
-	a.button, a:link.button {color:#fff;}   
-	
-	/* black */
-	.black{color:#d7d7d7;border:solid 1px #333;background:#333;background:-webkit-gradient(linear,left top,left bottom,from(#666),to(#000));background:-moz-linear-gradient(top,#666,#000);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#666666',endColorstr='#000000');}
-	.black:hover{background:#000;background:-webkit-gradient(linear,left top,left bottom,from(#444),to(#000));background:-moz-linear-gradient(top,#444,#000);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#444444',endColorstr='#000000');}
-	.black:active{color:#666;background:-webkit-gradient(linear,left top,left bottom,from(#000),to(#444));background:-moz-linear-gradient(top,#000,#444);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000',endColorstr='#666666');}
-	/* blue */
-	.blue{color:#d9eef7;border:solid 1px #0076a3;background:#0095cd;background:-webkit-gradient(linear,left top,left bottom,from(#00adee),to(#0078a5));background:-moz-linear-gradient(top,#00adee,#0078a5);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee',endColorstr='#0078a5');}
-	.blue:hover{background:#007ead;background:-webkit-gradient(linear,left top,left bottom,from(#0095cc),to(#00678e));background:-moz-linear-gradient(top,#0095cc,#00678e);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc',endColorstr='#00678e');}
-	.blue:active{color:#80bed6;background:-webkit-gradient(linear,left top,left bottom,from(#0078a5),to(#00adee));background:-moz-linear-gradient(top,#0078a5,#00adee);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078a5',endColorstr='#00adee');}
-}   
+li.defn {list-style: none; margin: 1em 0em; font-size: 80%;}
+dfn {font-style: normal;}
+em > dfn {font-style: italic;}
+dt {font-weight: normal; font-variant: small-caps;}
+dd {font-style: normal;} 
 
 /*TOC */
 
 #toc a::after { content: leader(".") target-counter(attr(href), page); } 
-.chapter { page-break-before: always }
